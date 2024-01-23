@@ -10,4 +10,4 @@ RUN npm install
 
 EXPOSE 4455
 
-CMD ["sh","./start.sh"]
+CMD ["npm","start"]

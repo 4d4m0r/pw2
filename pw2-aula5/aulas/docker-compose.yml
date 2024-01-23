@@ -8,11 +8,11 @@ services:
     ports:
       - ${BACKEND_PORT}:${BACKEND_PORT}
     volumes:
-      - ./backend:./app
+      - ./backend:/app
     environment:
       - NODE_ENV=${NODE_ENV}
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
   frontend:
     container_name: loja_frontend
     build: 
