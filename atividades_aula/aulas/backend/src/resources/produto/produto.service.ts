@@ -11,6 +11,10 @@ export async function createProduto( produto: CreateProdutoDto ): Promise<Produt
     return await prisma.produto.create({ data: produto });
 }
 
+export async function readProduto( id: String ): Promise<Produto | null> {
+    return await prisma.produto.findUnique({ where: {id} });
+}
+
 export async function produtoAlreadyExists(nome: string): Promise<boolean> {
     return !!(await prisma.produto.findUnique({ where: {nome}} ));
 }
