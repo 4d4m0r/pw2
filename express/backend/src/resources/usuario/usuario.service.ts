@@ -1,4 +1,5 @@
 import { PrismaClient,Usuario } from "@prisma/client";
+import { genSalt, hash } from "bcryptjs";
 
 import { CreateUsuarioDto,UpdateUsuarioDto,UsuarioDto } from "./usuario.types";
 
@@ -9,7 +10,9 @@ export async function getAllUsuarios(): Promise<Usuario[]>{
 }
 
 export async function createUsuario(usuario: CreateUsuarioDto): Promise<Usuario>{
-    return await prisma.usuario.create({data : usuario});
+    const salt = await genSalt(parseInt(process.env.SALT_ROUNDS!))
+    const senha = await hash(usuario.senha,salt)
+    return await prisma.usuario.create({data : {...usuario,senha: senha}});
 }
 
 export async function jaExiste(nome: string,email:string): Promise<boolean> {

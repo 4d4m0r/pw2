@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import session from 'express-session';
 import { v4 as uuidv4 } from 'uuid';
+import swaggerUi from "swagger-ui-express";
+import swaggerFile from "./swagger-output.json";
 
 import accessLogger from './utils/middleware';
 import router from './router/index';
@@ -10,12 +12,20 @@ import cookieParser from 'cookie-parser';
 import setLangCookie from './middlewares/setLangCookie';
 import validateEnv from './utils/validateEnv';
 
+declare module "express-session" {
+  interface SessionData{
+    uid: string;
+    tipoUsuarioId: string;
+  }
+}
+
 dotenv.config();
 validateEnv();
 
 const app = express();
 const PORT = process.env.PORT || 3333;
 
+app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(
   session({
     genid: (req) => uuidv4(),
