@@ -17,6 +17,7 @@ interface ProdutoCardProps {
 export default function ProdutoCard({ produto }: ProdutoCardProps) {
   const [quantidade, setQuantidade] = useState(1);
   const [precoTotal, setPrecoTotal] = useState(1 * produto.preco)
+  console.log("teste")
 
   useEffect(() => {
     setPrecoTotal(quantidade * produto.preco)
