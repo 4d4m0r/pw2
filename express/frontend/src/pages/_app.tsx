@@ -10,11 +10,10 @@ import '@fontsource/roboto/700.css';
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  //<Component {...pageProps} />;
   return ( <>
     <AppBar />
-    <div>
-      <Component {...pageProps} />;
+    <div  style={{ marginLeft: 100,marginTop: 10 }}>
+      <Component {...pageProps} />
     </div>
   </>)
 }

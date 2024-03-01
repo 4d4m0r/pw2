@@ -1,17 +1,3 @@
-export interface Produto {
-  id: string;
-  nome: string;
-  preco: number;
-  estoque: number;
-}
+import { CompraItem } from "@prisma/client";
 
-export interface CompraItem {
-  produtoId: string;
-  quantidade: number;
-}
-
-export interface Compra {
-  id: string;
-  usuarioId: string;
-  items: CompraItem[];
-}
+export type AddCompraItemDto = Pick<CompraItem, 'produtoId' | 'quantidade'>
