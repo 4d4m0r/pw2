@@ -1,17 +1,11 @@
-import { getAllProdutos } from "@/fakeDb/produto";
-import styles from "./produto.module.css";
-import Link from "../../../node_modules/next/link";
+import React from 'react'
 
-export default function Home() {
-  const produtos = getAllProdutos();
+import ProdutoIndex from '@/components/produto/ProdutoIndex'
+
+function ProdutoIndexPage() {
   return (
-    <div>
-      <h1>Galos Disponíveis</h1>
-      <ul>
-        {produtos.map((prod) => (
-          <li key={prod.id} className={styles.listaProdutos}><Link href={`/produto/${prod.id}`}>{prod.nome}</Link></li>
-        ))}
-      </ul>
-    </div>
-  );
+    <ProdutoIndex />
+  )
 }
+
+export default ProdutoIndexPage;

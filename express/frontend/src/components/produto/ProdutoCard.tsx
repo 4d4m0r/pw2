@@ -10,52 +10,82 @@ import { Produto } from "@/types/produto";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Container from "@mui/material/Container";
+import api from "@/utils/api";
+import EditIcon from "@mui/icons-material/Edit";
+import { IconButton, Link, Stack, Box } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useRouter } from "next/router";
 
 interface ProdutoCardProps {
-  produto: Produto;
+  id: string;
 }
 
-export default function ProdutoCard({ produto }: ProdutoCardProps) {
+export default function ProdutoCard({ id }: ProdutoCardProps) {
   const [quantidade, setQuantidade] = useState(1);
-  const [precoTotal, setPrecoTotal] = useState(1 * produto.preco);
-  console.log("teste");
+  const [produto, setProduto] = useState<Produto>();
+  const precoTotal = produto ? quantidade * produto.preco : 0;
 
+  const router = useRouter();
   useEffect(() => {
-    setPrecoTotal(quantidade * produto.preco);
-  }, [quantidade]);
+    api.get(`/produto/${id}`).then((data) => {
+      setProduto(data.data);
+    });
+  }, [id]);
 
   const increaseQtd = () => {
-    if (quantidade < produto.estoque) setQuantidade(quantidade + 1);
+    if (produto && quantidade < produto.estoque) setQuantidade(quantidade + 1);
   };
 
   const decreaseQtd = () => {
     if (quantidade > 1) setQuantidade(quantidade - 1);
   };
 
+  const handleDelete = (e: any) => {
+    e.preventDefault();
+
+    api.delete(`/produto/${id}`).then(() => {
+      router.push("/produto");
+    });
+  };
+  if (!produto) return <>Carregando...</>;
+
   return (
-      <Card sx={{ maxWidth: 345 }}>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {produto.nome}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Preço = {produto.preco}
-            <br />
-            Estoque = {produto.estoque}
-            <br />
-            Quantidade = {quantidade}
-            <br />
-            Preço Total = {precoTotal}
-          </Typography>
-        </CardContent>
-        <ButtonGroup variant="contained" aria-label="Basic button group">
-          <Button variant="contained" onClick={increaseQtd}>
-            <AddIcon />
-          </Button>
-          <Button variant="contained" onClick={decreaseQtd}>
-            <RemoveIcon />
-          </Button>
-        </ButtonGroup>
-      </Card>
+    <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {produto.nome}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <strong>Preço:</strong> R$ {produto.preco}
+          <br />
+          <strong>Estoque:</strong> {produto.estoque}
+        </Typography>
+        <Box mt={2}>
+          <Stack direction="row" spacing={1} alignItems="center">
+            <ButtonGroup>
+              <Button onClick={decreaseQtd} disabled={quantidade === 1}>
+                <RemoveIcon />
+              </Button>
+              <Button>{quantidade}</Button>
+              <Button onClick={increaseQtd} disabled={quantidade === produto.estoque}>
+                <AddIcon />
+              </Button>
+              
+            </ButtonGroup>
+            <Typography>
+              Preço Total: R$ {(quantidade * produto.preco).toFixed(2)}
+            </Typography>
+          </Stack>
+        </Box>
+      </CardContent>
+      <CardActions>
+        <IconButton component={Link} href={`/produto/update/${id}`}>
+          <EditIcon />
+        </IconButton>
+        <IconButton onClick={handleDelete}>
+          <DeleteIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 }

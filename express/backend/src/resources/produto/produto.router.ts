@@ -8,9 +8,9 @@ import isAdmin from '../../middlewares/isAdmin';
 const router = Router();
 
 router.get('/', produtoController.index);
-router.post('/', isAdmin,validate(schema),produtoController.create);
+router.post('/', validate(schema),produtoController.create);
 router.get('/:id', produtoController.read);
-router.put('/:id', isAdmin,validate(schema),produtoController.update);
+router.put('/:id', validate(schema),produtoController.update);
 router.delete('/:id', produtoController.remove);
 
 export default router;
