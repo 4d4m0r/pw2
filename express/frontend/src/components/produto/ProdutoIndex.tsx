@@ -9,7 +9,7 @@ export default function ProdutoIndex() {
   const [produtos, setProdutos] = useState<Produto[]>();
 
   useEffect(() => {
-    api.get("/produto").then((data) => {
+    api.get("/produto", {withCredentials:true}).then((data) => {
       setProdutos(data.data);
     });
   }, []);

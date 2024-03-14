@@ -9,17 +9,23 @@ function SignUp() {
   const [nome, setNome] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
+  const [confirmSenha, setConfirmSenha] = useState<string>("");
+  const [erro, setErro] = useState<string>("");
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const credenciais: SignUpDto = {
-      nome: nome,
-      email: email,
-      senha: senha,
-    };
-    api.post("/signup", credenciais).then((data) => {
-      router.push("/produto");
-    });
+
+    if(senha != confirmSenha) setErro("As senhas não batem.")
+    else {
+      const credenciais: SignUpDto = {
+        nome: nome!,
+        email: email!,
+        senha: senha!,
+      };
+      api.post("/signup", credenciais).then((data) => {
+        router.push("/produto");
+      });
+    }
   };
 
   return (
@@ -61,6 +67,24 @@ function SignUp() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
+        </Box>
+
+        <Box>
+          <TextField
+            label="Confirme Senha"
+            variant="outlined"
+            fullWidth
+            required
+            type="password"
+            value={confirmSenha}
+            onChange={(e) => setConfirmSenha(e.target.value)}
+          />
+        </Box>
+
+        <Box sx={{ mb: 2 }}>
+          <Typography variant = "body1" sx={{color: "red"}}>
+            {erro}
+          </Typography>
         </Box>
         <Button variant="contained" type="submit" fullWidth>
           Enviar

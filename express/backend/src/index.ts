@@ -26,7 +26,7 @@ validateEnv();
 const app = express();
 const PORT = process.env.PORT || 3333;
 
-app.use(cors());
+app.use(cors({credentials: true,origin: "http://localhost:4466"}));
 app.use("/api", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(
   session({

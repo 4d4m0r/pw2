@@ -26,7 +26,7 @@ async function login(req: Request, res: Response) {
     if (usuario) {
       req.session.uid = usuario.id;
       req.session.tipoUsuarioId = usuario.tipoUsuarioId;
-      res.status(StatusCodes.OK).json(ReasonPhrases.ACCEPTED);
+      res.status(StatusCodes.OK).json({nome: usuario.nome, TiposUsuario: usuario.tipoUsuarioId==TiposUsuarios.CLIENT ? 'client' : 'admin'});
     } else {
       res.status(StatusCodes.UNAUTHORIZED).json(ReasonPhrases.UNAUTHORIZED);
     }
