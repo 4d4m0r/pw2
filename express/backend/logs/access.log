@@ -652,3 +652,64 @@
 2024-03-14T21:30:45.487Z - GET /v1/produto
 2024-03-14T21:30:45.529Z - GET /v1/produto
 2024-03-14T21:30:45.533Z - GET /v1/produto
+2024-03-20T14:36:16.370Z - POST /v1/login
+2024-03-20T14:36:29.441Z - POST /v1/signup
+2024-03-20T14:37:04.906Z - POST /v1/signup
+2024-03-20T14:37:34.304Z - POST /v1/signup
+2024-03-20T14:38:20.707Z - GET /v1/signup
+2024-03-20T14:39:42.024Z - POST /v1/signup
+2024-03-20T14:40:52.946Z - POST /v1/signup
+2024-03-20T14:40:55.256Z - POST /v1/signup
+2024-03-20T14:43:54.627Z - POST /v1/signup
+2024-03-20T14:44:22.487Z - POST /v1/signup
+2024-03-20T14:48:16.018Z - POST /v1/signup
+2024-03-20T14:49:46.969Z - POST /v1/signup
+2024-03-20T14:51:35.161Z - POST /v1/login
+2024-03-20T14:51:35.826Z - GET /v1/produto
+2024-03-20T14:51:35.836Z - GET /v1/produto
+2024-03-20T14:52:07.610Z - POST /v1/logout
+2024-03-20T14:52:19.369Z - POST /v1/signup
+2024-03-20T14:55:19.302Z - POST /v1/signup
+2024-03-20T14:55:33.267Z - POST /v1/login
+2024-03-20T14:55:33.363Z - GET /v1/produto
+2024-03-20T14:55:33.369Z - GET /v1/produto
+2024-03-20T14:55:38.142Z - POST /v1/logout
+2024-03-20T14:58:17.179Z - POST /v1/login
+2024-03-20T14:58:17.635Z - GET /v1/produto
+2024-03-20T14:58:17.645Z - GET /v1/produto
+2024-03-20T14:58:19.467Z - POST /v1/logout
+2024-03-20T14:59:33.294Z - POST /v1/login
+2024-03-20T14:59:33.380Z - GET /v1/produto
+2024-03-20T14:59:33.383Z - GET /v1/produto
+2024-03-20T14:59:34.855Z - POST /v1/logout
+2024-03-20T14:59:38.066Z - GET /v1/produto
+2024-03-20T14:59:38.070Z - GET /v1/produto
+2024-03-21T16:16:27.715Z - POST /v1/signup
+2024-03-21T16:33:03.259Z - POST /v1/signup
+2024-03-21T16:34:36.710Z - POST /v1/usuario/
+2024-03-21T16:35:09.413Z - POST /v1/signup
+2024-03-21T16:35:10.519Z - POST /v1/signup
+2024-03-21T17:00:44.521Z - POST /v1/signup
+2024-03-21T17:00:54.623Z - GET /v1/produto
+2024-03-21T17:00:54.640Z - GET /v1/produto
+2024-03-21T17:01:10.474Z - GET /v1/produto
+2024-03-21T17:01:10.478Z - GET /v1/produto
+2024-03-21T17:01:22.188Z - GET /v1/produto
+2024-03-21T17:01:22.204Z - GET /v1/produto
+2024-03-21T17:01:43.971Z - POST /v1/signup
+2024-03-21T17:03:45.822Z - POST /v1/signup
+2024-03-21T17:04:40.424Z - GET /v1/signup
+2024-03-21T17:05:47.318Z - POST /v1/signup HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:07:39.961Z - POST /v1/signup HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:07:40.097Z - GET /v1/produto HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:07:40.107Z - GET /v1/produto HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:08:59.300Z - POST /v1/signup HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:12:34.972Z - POST /v1/signup HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:12:52.118Z - POST /v1/login HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:12:52.355Z - GET /v1/produto HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:12:52.362Z - GET /v1/produto HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:12:56.520Z - POST /v1/logout HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36
+2024-03-21T17:37:50.557Z - POST /v1/login
+2024-03-21T17:37:51.095Z - GET /v1/produto
+2024-03-21T17:37:51.104Z - GET /v1/produto
+2024-03-21T17:37:52.911Z - POST /v1/logout

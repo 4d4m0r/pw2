@@ -9,6 +9,7 @@ interface Usuario {
     nome: string;
     email: string;
     senha: string;
+    tipoUsuarioId: string;
 }
 
 export type SignUpDto = Pick<Usuario, "nome" | "email" | "senha">

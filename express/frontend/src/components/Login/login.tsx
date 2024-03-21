@@ -20,7 +20,7 @@ function Login() {
             console.log(data)
             router.push("/produto")
         }).catch((err) => {
-            if (err.respose.status == 401){
+            if (err.response.status == 401){
                 setError("Email e/ou senha inválidos");
             }
 
@@ -45,6 +45,7 @@ function Login() {
                 <Box sx={{ mb: 2 }}>
                     <TextField
                         label="Senha"
+                        type="password"
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                     />

@@ -19,7 +19,7 @@ export default function ButtonAppBar() {
     api.post("/logout", undefined,{withCredentials:true})
     .then((data) => {
       setAuth(null);
-      router.push('/produto');
+      router.push('/');
     });
 
   }
@@ -39,7 +39,6 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             AdaLoja
           </Typography>
-          <Button component={Link} href='/produto' color="inherit">Produtos</Button>
           {!auth &&(
             <>
               <Button component={Link} href='/auth/login'color="inherit">Login</Button>
@@ -49,6 +48,7 @@ export default function ButtonAppBar() {
 
           {auth &&(
             <>
+              <Button component={Link} href='/produto' color="inherit">Produtos</Button>
               <Button onClick={onLogout} color="inherit">Logout</Button>
             </>
           )}
